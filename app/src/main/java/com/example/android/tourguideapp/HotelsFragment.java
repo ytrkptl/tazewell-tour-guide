@@ -2,8 +2,10 @@ package com.example.android.tourguideapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -107,6 +111,14 @@ public class HotelsFragment extends Fragment {
 
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
+
+                String addressToSend = word.getNameOfPlace() + " " + word.getStreetAddress() + " " + word.getTownAddress();
+                //Toast.makeText(getContext(), addressToSend, Toast.LENGTH_LONG).show();
+                // Search for restaurants nearby
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + addressToSend);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
 
                 // Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time

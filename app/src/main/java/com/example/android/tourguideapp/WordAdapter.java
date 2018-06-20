@@ -2,6 +2,7 @@ package com.example.android.tourguideapp;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
