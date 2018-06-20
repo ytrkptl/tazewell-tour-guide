@@ -78,13 +78,13 @@ public class RestaurantsFragment extends Fragment {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("Italian Village", "1525 Fincastle Turnpike", "Tazewell, VA 24651", "(276) 988-6572", R.drawable.italian_village));
-        words.add(new Word("El Mariachi", "624 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-0889", R.drawable.el_mariachi));
-        words.add(new Word("Your Grate Escape", "2871 Fincastle Turnpike", "North Tazewell, VA 24630", "(276) 988-7867", R.drawable.your_grate));
-        words.add(new Word("Tray Ting House", "631 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-4874", R.drawable.tray_ting));
-        words.add(new Word("Big Burrito", "618 Carline Ave", "Tazewell, VA 24651", "(276) 385-1745", R.drawable.big_burrtio));
-        words.add(new Word("Seven", "203 Main Street", "Tazewell, VA 24651", "(276) 385-1100", R.drawable.seven));
-        words.add(new Word("Coal Bucket Deli", "100 Tazewell Mall Cir #16", "Tazewell, VA 24651", "(276) 988-9111", R.drawable.coal_bucket));
+        words.add(new Word("Italian Village", "1525 Fincastle Turnpike", "Tazewell, VA 24651", "(276) 988-6572", R.drawable.pizza_23477_1280));
+        words.add(new Word("El Mariachi", "624 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-0889", R.drawable.taco_155812_1280));
+        words.add(new Word("Your Grate Escape", "2871 Fincastle Turnpike", "North Tazewell, VA 24630", "(276) 988-7867", R.drawable.eat_2411129_1280));
+        words.add(new Word("Tray Ting House", "631 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-4874", R.drawable.dragon_1597597_1280));
+        words.add(new Word("Big Burrito", "618 Carline Ave", "Tazewell, VA 24651", "(276) 385-1745", R.drawable.taco_155812_1280));
+        words.add(new Word("Seven", "203 Main Street", "Tazewell, VA 24651", "(276) 385-1100", R.drawable.eat_2411129_1280));
+        words.add(new Word("Coal Bucket Deli", "100 Tazewell Mall Cir #16", "Tazewell, VA 24651", "(276) 988-9111", R.drawable.eat_2411129_1280));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

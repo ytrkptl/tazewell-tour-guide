@@ -80,11 +80,11 @@ public class ShoppingFragment extends Fragment {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("Food Lion", "248 Market St", "North Tazewell, VA 24630", "(276) 988-2900", R.drawable.food_lion));
-        words.add(new Word("Grants Supermarket", "629 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-0945", R.drawable.grants));
-        words.add(new Word("Magic Mart", "13 Tazewell Mall Cir", "Tazewell, VA 24651", "(276) 988-4567", R.drawable.magic_mart));
-        words.add(new Word("Loose Change", "850 Fincastle Turnpike", "Tazewell, VA 24651", "(276) 988-7444", R.drawable.loose_change));
-        words.add(new Word("Country Variety Consignment Shop", "216 Tazewell Mall Circle", "Tazewell, VA 24651", "(276) 979-4284", R.drawable.county_variety));
+        words.add(new Word("Food Lion", "248 Market St", "North Tazewell, VA 24630", "(276) 988-2900", R.drawable.shopping_cart_371979_1280));
+        words.add(new Word("Grants Supermarket", "629 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-0945", R.drawable.shopping_cart_371979_1280));
+        words.add(new Word("Magic Mart", "13 Tazewell Mall Cir", "Tazewell, VA 24651", "(276) 988-4567", R.drawable.shopping_cart_371979_1280));
+        words.add(new Word("Loose Change", "850 Fincastle Turnpike", "Tazewell, VA 24651", "(276) 988-7444", R.drawable.shopping_cart_371979_1280));
+        words.add(new Word("Country Variety Consignment Shop", "216 Tazewell Mall Circle", "Tazewell, VA 24651", "(276) 979-4284", R.drawable.shopping_cart_371979_1280));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

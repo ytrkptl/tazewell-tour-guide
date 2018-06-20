@@ -80,8 +80,8 @@ public class SchoolsFragment extends Fragment {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("Tazewell Elementary School", "175 Parkview Drive", "Tazewell, VA 24651", "(276) 988-4441", R.drawable.bulldog));
-        words.add(new Word("Tazewell Middle School", "367 Hope Street", "Tazewell, VA 24651", "(276) 988-6513", R.drawable.bulldog));
+        words.add(new Word("Tazewell Elementary School", "175 Parkview Drive", "Tazewell, VA 24651", "(276) 988-4441", R.drawable.dog_46365_1280));
+        words.add(new Word("Tazewell Middle School", "367 Hope Street", "Tazewell, VA 24651", "(276) 988-6513", R.drawable.dog_46365_1280));
         words.add(new Word("Tazewell High School", "167 Cosby Lane", "Tazewell, VA 24651", "(276) 988-6502"));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
