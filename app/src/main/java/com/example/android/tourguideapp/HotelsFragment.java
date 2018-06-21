@@ -1,6 +1,7 @@
 package com.example.android.tourguideapp;
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -11,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,6 +21,9 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class HotelsFragment extends Fragment {
+
+    Dialog showImageDialog;
+    Intent mapIntent;
 
     public HotelsFragment() {
         // Required empty public constructor
@@ -56,10 +61,15 @@ public class HotelsFragment extends Fragment {
                 Word word = words.get(position);
 
                 String addressToSend = word.getNameOfPlace() + " " + word.getStreetAddress() + " " + word.getTownAddress();
+                //Toast.makeText(getContext(), addressToSend, Toast.LENGTH_LONG).show();
                 Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + addressToSend);
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+
+                showImageDialog = new Dialog(getContext());
+                showImageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                showImageDialog.setContentView(R.layout.dialog_layout);
+                showImageDialog.show();
             }
         });
 
