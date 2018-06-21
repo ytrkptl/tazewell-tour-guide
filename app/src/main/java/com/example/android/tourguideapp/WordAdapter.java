@@ -18,9 +18,7 @@ import java.util.ArrayList;
  */
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    /**
-     * Resource ID for the background color for this list of words
-     */
+    //Resource ID for the background color for this list of words
     //leave this here in case I want to change color in future.
     private int mColorResourceId;
 
@@ -50,26 +48,18 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         // Find the TextView in the list_item.xml layout with the ID name_text_view.
         TextView nameOfPlace = (TextView) listItemView.findViewById(R.id.name_text_view);
-        // Get the Miwok translation from the currentWord object and set this text on
-        // the Miwok TextView.
         nameOfPlace.setText(currentWord.getNameOfPlace());
 
         // Find the TextView in the list_item.xml layout with the ID street_text_view.
         TextView streetTextView = (TextView) listItemView.findViewById(R.id.street_text_view);
-        // Get the default translation from the currentWord object and set this text on
-        // the default TextView.
         streetTextView.setText(currentWord.getStreetAddress());
 
         // Find the TextView in the list_item.xml layout with the ID town_text_view.
         TextView townTextView = (TextView) listItemView.findViewById(R.id.town_text_view);
-        // Get the default translation from the currentWord object and set this text on
-        // the default TextView.
         townTextView.setText(currentWord.getTownAddress());
 
         // Find the TextView in the list_item.xml layout with the ID phone_text_view.
         TextView phoneTextView = (TextView) listItemView.findViewById(R.id.phone_text_view);
-        // Get the default translation from the currentWord object and set this text on
-        // the default TextView.
         phoneTextView.setText(currentWord.getPhoneNumber());
 
         // Find the ImageView in the list_item.xml layout with the ID image.

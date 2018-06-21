@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorGreen">#228B22</color>
-    <color name="colorBlack">#ffffff</color>
+    <color name="colorBlack">#000000</color>
     <!-- Primary color of the app (shown in the app bar) -->
     <color name="primary_color">#4A312A</color>
 
