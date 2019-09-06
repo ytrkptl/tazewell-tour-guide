@@ -1,4 +1,16 @@
 <resources>
     <!-- Height of each list item -->
     <dimen name="list_item_height">110dp</dimen>
+    <dimen name="space_below_phone_dialog">10dp</dimen>
+    <dimen name="space_above_phone_dialog">10dp</dimen>
+    <dimen name="space_above_maps_button_dialog">4dp</dimen>
+    <dimen name="dialog_button_padding">15dp</dimen>
+    <dimen name="x_image_button_size">50dp</dimen>
+    <dimen name="padding_main_text_dialog">8dp</dimen>
+    <dimen name="max_width_business_title_dialog">200dp</dimen>
+    <dimen name="button_in_dialog_text_size">20sp</dimen>
+    <dimen name="text_container_padding_left">16dp</dimen>
+    <dimen name="rel_layout_padding_list_item">8dp</dimen>
+    <dimen name="text_in_dialog_text_size">20sp</dimen>
+    <dimen name="max_width_street_dialog">250dp</dimen>
 </resources>

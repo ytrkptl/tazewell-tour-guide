@@ -1,44 +1,20 @@
 package com.example.android.tourguideapp;
 
-
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.text.Layout;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
- * {@link Fragment} that displays a list of number vocabulary words.
+ * {@link Fragment} that displays a list of shopping locations
  */
 public class ShoppingFragment extends Fragment {
-
-    Dialog showImageDialog;
-    Intent mapIntent;
-    Button yesButton;
-    Button noButton;
 
     public ShoppingFragment() {
         // Required empty public constructor
@@ -51,11 +27,11 @@ public class ShoppingFragment extends Fragment {
 
         // Create a list of words
         final ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("Food Lion", "248 Market St", "North Tazewell, VA 24630", "(276) 988-2900", R.drawable.shopping_cart_371979_1280));
-        words.add(new Word("Grants Supermarket", "629 E Riverside Dr", "North Tazewell, VA 24630", "(276) 988-0945", R.drawable.shopping_cart_371979_1280));
-        words.add(new Word("Magic Mart", "13 Tazewell Mall Cir", "Tazewell, VA 24651", "(276) 988-4567", R.drawable.shopping_cart_371979_1280));
-        words.add(new Word("Loose Change", "850 Fincastle Turnpike", "Tazewell, VA 24651", "(276) 988-7444", R.drawable.shopping_cart_371979_1280));
-        words.add(new Word("Country Variety Consignment Shop", "216 Tazewell Mall Circle", "Tazewell, VA 24651", "(276) 979-4284", R.drawable.shopping_cart_371979_1280));
+        words.add(new Word(getString(R.string.shop_name1), getString(R.string.shop_address1), getString(R.string.shop_town2), getString(R.string.shop_phone1), R.drawable.shopping_cart_371979_1280));
+        words.add(new Word(getString(R.string.shop_name2), getString(R.string.shop_address2), getString(R.string.shop_town2), getString(R.string.shop_phone2), R.drawable.shopping_cart_371979_1280));
+        words.add(new Word(getString(R.string.shop_name3), getString(R.string.shop_address3), getString(R.string.shop_town1), getString(R.string.shop_phone3), R.drawable.shopping_cart_371979_1280));
+        words.add(new Word(getString(R.string.shop_name4), getString(R.string.shop_address4), getString(R.string.shop_town1), getString(R.string.shop_phone4), R.drawable.shopping_cart_371979_1280));
+        words.add(new Word(getString(R.string.shop_name5), getString(R.string.shop_address5), getString(R.string.shop_town1), getString(R.string.shop_phone5), R.drawable.shopping_cart_371979_1280));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -70,35 +46,37 @@ public class ShoppingFragment extends Fragment {
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
-        // Set a click listener to play open a dialog view
+        // Set a click listener to show a dialog fragment when the list item is clicked.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
-
-                String addressToSend = word.getNameOfPlace() + " " + word.getStreetAddress() + " " + word.getTownAddress();
-                //Toast.makeText(getContext(), addressToSend, Toast.LENGTH_LONG).show();
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + addressToSend);
-                mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-
-                showImageDialog = new Dialog(getContext());
-                showImageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                showImageDialog.setContentView(R.layout.dialog_layout);
-                showImageDialog.show();
-            }
-        });
-        yesButton = new Button(getContext());
-        yesButton.findViewById(R.id.yes_dialog_button);
-        yesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(mapIntent);
+                //create a strings to send to dialogFragment
+                String businessName = word.getNameOfPlace();
+                String streetText = word.getStreetAddress();
+                String townText = word.getTownAddress();
+                String phoneText = word.getPhoneNumber();
+                //Learned how to display dialog fragment from the following:
+                //    https://medium.com/@xabaras/creating-a-custom-dialog-with-dialogfragment-f0198dab656d
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment prev = getFragmentManager().findFragmentByTag(getString(R.string.frag_tag));
+                if (prev != null) {
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
+                android.support.v4.app.DialogFragment dialogFragment = new MyCustomDialogFragment();
+                // Learned how to pass data to dialog fragments from the following site:
+                //    http://www.androhub.com/android-pass-data-from-activity-to-fragment/
+                Bundle data = new Bundle();//create bundle instance
+                data.putString(getString(R.string.bus_in_cus_dialog_fragment), businessName);//put string to pass with a key value
+                data.putString(getString(R.string.str_in_cus_dialog_fragment), streetText);
+                data.putString(getString(R.string.twn_in_cus_dialog_fragment), townText);
+                data.putString(getString(R.string.ph_in_cus_dialog_fragment), phoneText);
+                dialogFragment.setArguments(data);
+                dialogFragment.show(ft, getString(R.string.frag_tag));
             }
         });
         return rootView;
-
-
     }
 }

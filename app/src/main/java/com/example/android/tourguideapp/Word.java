@@ -1,7 +1,5 @@
 package com.example.android.tourguideapp;
 
-import android.widget.ImageView;
-
 /**
  * {@link Word} represents a place or business in the Town of Tazewell or North Tazewell
  * It contains a nameOfPlace, streetAddress, townAddress, phoneNumber, and imageResourceID
@@ -49,18 +47,22 @@ public class Word {
     public String getNameOfPlace() {
         return nameOfPlace;
     }
+
     //get name of street
     public String getStreetAddress() {
         return streetAddress;
     }
+
     //get name of town, state, and zip-code
     public String getTownAddress() {
         return townAddress;
     }
+
     //get the phone number
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     //the imageResourceId was fine.
     public int getImageResourceId() {
         return imageResourceId;

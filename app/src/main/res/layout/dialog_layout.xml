@@ -1,40 +1,75 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dialog_layout_id"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/padding_main_text_dialog">
 
     <TextView
-        android:id="@+id/text_in_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:text="@string/dialog_message"
-        android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="40sp" />
+        android:id="@+id/name_of_place_dialog"
+        style="@style/DialogText"
+        android:layout_alignParentTop="true"
+        android:maxWidth="@dimen/max_width_business_title_dialog"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/street_in_dialog"
+        style="@style/DialogText"
+        android:maxWidth="@dimen/max_width_street_dialog"
+        android:layout_below="@id/name_of_place_dialog" />
+
+    <TextView
+        android:id="@+id/town_in_dialog"
+        style="@style/DialogText"
+        android:layout_below="@id/street_in_dialog"
+        android:layout_marginBottom="@dimen/space_above_phone_dialog" />
+
+    <TextView
+        android:id="@+id/phone_in_dialog"
+        style="@style/DialogText"
+        android:layout_below="@id/town_in_dialog"
+        android:layout_marginBottom="@dimen/space_below_phone_dialog"
+        android:autoLink="phone" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_in_dialog">
+
+        <TextView
+            android:id="@+id/text_in_dialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/dialog_message"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_in_dialog_text_size" />
 
         <Button
             android:id="@+id/yes_dialog_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/dialog_button_padding"
             android:scaleType="fitCenter"
             android:text="@string/button_yes_text"
-            tools:ignore="ButtonStyle" />
-
-        <Button
-            android:id="@+id/no_dialog_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="fitCenter"
-            android:text="@string/button_no_text"
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/button_in_dialog_text_size"
+            android:textStyle="bold"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
-</LinearLayout>
+
+    <ImageButton
+        android:id="@+id/close_dialog_button"
+        android:layout_width="@dimen/x_image_button_size"
+        android:layout_height="@dimen/x_image_button_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_cancel" />
+</RelativeLayout>
